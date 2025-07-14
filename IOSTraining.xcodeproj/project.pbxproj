@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		449658E8DC43DFAE19019B01 /* Pods_IOSTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9A211FFD95CA392E8D3E40 /* Pods_IOSTraining.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		1B9A211FFD95CA392E8D3E40 /* Pods_IOSTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		463D3C9D149D02992AD45A86 /* Pods-IOSTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTraining.debug.xcconfig"; path = "Target Support Files/Pods-IOSTraining/Pods-IOSTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		654046F02E1B62F500803887 /* IOSTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE107CFE98B33DA0ADD412E /* Pods-IOSTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTraining.release.xcconfig"; path = "Target Support Files/Pods-IOSTraining/Pods-IOSTraining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449658E8DC43DFAE19019B01 /* Pods_IOSTraining.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2533287CD55C75F3BA7B55C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B9A211FFD95CA392E8D3E40 /* Pods_IOSTraining.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		654046E72E1B62F500803887 = {
 			isa = PBXGroup;
 			children = (
 				654046F22E1B62F500803887 /* IOSTraining */,
 				654046F12E1B62F500803887 /* Products */,
+				7EF75C892659FBD0CD6B4657 /* Pods */,
+				2533287CD55C75F3BA7B55C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +76,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7EF75C892659FBD0CD6B4657 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				463D3C9D149D02992AD45A86 /* Pods-IOSTraining.debug.xcconfig */,
+				DDE107CFE98B33DA0ADD412E /* Pods-IOSTraining.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 654047032E1B62F700803887 /* Build configuration list for PBXNativeTarget "IOSTraining" */;
 			buildPhases = (
+				606299D457DC99B00A88B1A8 /* [CP] Check Pods Manifest.lock */,
 				654046EC2E1B62F500803887 /* Sources */,
 				654046ED2E1B62F500803887 /* Frameworks */,
 				654046EE2E1B62F500803887 /* Resources */,
+				22FD6E8F570B5FCCB66E34F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				654046F22E1B62F500803887 /* IOSTraining */,
 			);
 			name = IOSTraining;
-			packageProductDependencies = (
-			);
 			productName = IOSTraining;
 			productReference = 654046F02E1B62F500803887 /* IOSTraining.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22FD6E8F570B5FCCB66E34F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSTraining/Pods-IOSTraining-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSTraining/Pods-IOSTraining-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSTraining/Pods-IOSTraining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		606299D457DC99B00A88B1A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IOSTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		654046EC2E1B62F500803887 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,11 +213,13 @@
 /* Begin XCBuildConfiguration section */
 		654047042E1B62F700803887 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 463D3C9D149D02992AD45A86 /* Pods-IOSTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOSTraining/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -167,11 +242,13 @@
 		};
 		654047052E1B62F700803887 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE107CFE98B33DA0ADD412E /* Pods-IOSTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOSTraining/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -229,7 +306,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -292,7 +369,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
