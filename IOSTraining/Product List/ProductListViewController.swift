@@ -28,10 +28,6 @@ class ProductListViewController: UIViewController {
 
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
-//
-//        title = "Product List"
-
-        // Do any additional setup after loading the view.
     }
 
 }

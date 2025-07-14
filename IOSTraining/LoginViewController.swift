@@ -53,33 +53,23 @@ class LoginViewController: UIViewController {
     @IBAction func onTapSubmitButton(_ sender: Any) {
 
         print("Submit Button tapped")
+
+        guard let email = emailTextField.text, !email.isEmpty else {
+            showErrorMessage("Please enter your email.")
+            return
+        }
+        
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            showErrorMessage("Please enter your password.")
+            return
+        }
+        
+        print("Email: \(email)")
+        print("Password: \(password)")
+
         let vc = OTPViewController(nibName: "OTPViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: false)
-        // assume successful validation on login
-//        MyManager.shared.setIsLoggedIn(true)
 
-//        let vc = TeacherListViewController(nibName: "TeacherListViewController", bundle: nil)
-//        self.navigationController?.pushViewController(vc, animated: false)
-        
-//        let vc = SignupViewController()
-//        vc.modalPresentationStyle = .fullScreen
-//        vc.modalTransitionStyle = .crossDissolve
-//        self.present(vc, animated: true)
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-//        guard let email = emailTextField.text, !email.isEmpty else {
-//            showErrorMessage("Please enter your email.")
-//            return
-//        }
-//        
-//        guard let password = passwordTextField.text, !password.isEmpty else {
-//            showErrorMessage("Please enter your password.")
-//            return
-//        }
-//        
-//        print("Email: \(email)")
-//        print("Password: \(password)")
     }
     
     

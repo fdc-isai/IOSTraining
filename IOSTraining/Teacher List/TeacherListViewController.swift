@@ -239,22 +239,7 @@ extension TeacherListViewController:UITableViewDelegate{
 
         let vc = TeacherDetailsViewController()
         vc.teacher = teachers[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
-
-//        let teacher = teachers[indexPath.row]
-//        let alertController = UIAlertController(
-//            title: teacher.name,
-//            message: teacher.address,
-//            preferredStyle: .alert
-//        )
-//        
-//        let okAction = UIAlertAction(title: "OK", style: .default)
-//        alertController.addAction(okAction)
-//        
-//        present(alertController, animated: true)
-        
-        
-        
+        self.navigationController?.pushViewController(vc, animated: true)        
        
     }
 }

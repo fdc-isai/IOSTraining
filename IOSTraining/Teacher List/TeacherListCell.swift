@@ -23,8 +23,6 @@ class TeacherListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.accessoryType = .disclosureIndicator
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

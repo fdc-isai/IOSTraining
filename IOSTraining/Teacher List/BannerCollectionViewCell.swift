@@ -12,7 +12,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bannerImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func configureCell (_ banner: Banner) {
