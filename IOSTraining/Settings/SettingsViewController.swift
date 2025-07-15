@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Combine
+import SwiftUI
+
 
 struct Setting {
     let name: String

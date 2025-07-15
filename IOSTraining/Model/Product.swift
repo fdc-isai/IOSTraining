@@ -23,6 +23,7 @@ struct Product: Codable {
     let price: Double?
     let thumbnail: String?
     let stock: Int?
-    let rate: Double?
+    let rating: Double?
     let discountPercentage: Double?
+    let images: [String]?
 }

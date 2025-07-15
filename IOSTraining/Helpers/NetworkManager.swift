@@ -34,7 +34,6 @@ final class NetworkManager {
     }
 
     func getProductDetail(id: Int, completion: @escaping (Product) -> Void) {
-        let randomNumber = Int.random(in: 1...10)
         let product = Product(
             id: 0,
             title: "",
@@ -44,8 +43,9 @@ final class NetworkManager {
             price: 0.00,
             thumbnail: "p_mascara",
             stock: 0,
-            rate: 0.00,
-            discountPercentage: 0.00
+            rating: 0.00,
+            discountPercentage: 0.00,
+            images: []
         )
         AF.request("https://dummyjson.com/products/\(id)")
             .responseJSON { response in

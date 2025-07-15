@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import SwiftUI
 
 class ProductListViewController: UIViewController {
 
@@ -57,9 +59,9 @@ extension ProductListViewController:UICollectionViewDelegate{
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let vc = ProductDetailViewController()
-        vc.product = products[indexPath.row]
-        vc.productId = products[indexPath.row].id
+
+        let vc = UIHostingController(rootView: ProductDetailSwiftUI(product: products[indexPath.row]))
+        vc.hidesBottomBarWhenPushed = true 
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
