@@ -32,6 +32,13 @@ class ProductListViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
     }
 
+    @IBAction func onTapGoToFavorites(_ sender: Any) {
+        let vc = UIHostingController(
+            rootView: FavoriteProductsSwiftUI()
+        )
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

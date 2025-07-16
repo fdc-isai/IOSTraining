@@ -28,11 +28,11 @@ struct AddedToCartSwiftUI: View {
 
                     Button {
                         goToCart = true
-                        viewModel
-                            .addToCart(
-                                userId: 1, // temp
-                                products: viewModel.selectedProduct
-                            )
+//                        viewModel
+//                            .addToCart(
+//                                userId: 1, // temp
+//                                products: viewModel.selectedProduct
+//                            )
                     } label: {
                         Text("Go to Cart")
                             .font(.subheadline)

@@ -36,18 +36,19 @@ struct ProductDetailSwiftUI: View {
 
     private func mainProductDetailView() -> some View {
         ScrollView{
-            LazyVStack(spacing: 10) {
-                // product details
-                productMainImageView
-                productThumbnailsView
-                productBrandInfoView
-                productTitleAndDescriptionView
-                productPriceAndActionsView
+                LazyVStack(spacing: 10) {
+                    // product details
+                    productMainImageView
+                    productThumbnailsView
+                    productBrandInfoView
+                    productTitleAndDescriptionView
+                    productPriceAndActionsView
 
-                // recommended products
-                RecommendedProductsSwiftUI()
-            }
-            .padding()
+                    // recommended products
+                    RecommendedProductsSwiftUI()
+                }
+                .padding()
+
         }
         .onAppear {
             viewModel.fetchProduct(by: productId)
@@ -55,7 +56,8 @@ struct ProductDetailSwiftUI: View {
     }
 
     private var productMainImageView: some View {
-        HStack {
+
+        ZStack (alignment: .topTrailing) {
             if let url = URL(string: viewModel.productImageURL) {
                 KFImage(url)
                     .resizable()
@@ -63,6 +65,13 @@ struct ProductDetailSwiftUI: View {
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemGray6))
             }
+
+            favoriteView()
+                .onTapGesture {
+                    viewModel.isFavorite = !viewModel.isFavorite
+                    print(viewModel.isFavorite)
+                }
+
         }
     }
 
@@ -181,9 +190,35 @@ struct ProductDetailSwiftUI: View {
         .background(Color(.systemGray6))
         .cornerRadius(60)
     }
+
+    private func favoriteView() -> some View {
+        if viewModel.isFavorite {
+            Image("flaticon_heart_filled")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .padding(10)
+                .background(Color.white)
+                .clipShape(Circle())
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+                .scaleEffect(1.02)
+                .padding([.top, .trailing], 5)
+        } else {
+            Image("flaticon_heart_empty")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .padding(10)
+                .background(Color.white)
+                .clipShape(Circle())
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+                .scaleEffect(1.02)
+                .padding([.top, .trailing], 5)
+        }
+    }
 }
 
-#Preview {
-    ProductDetailSwiftUI(productId: 1, viewModel: ProductDetailModelView())
-}
+//#Preview {
+//    ProductDetailSwiftUI(productId: 1, viewModel: ProductDetailModelView())
+//}
 

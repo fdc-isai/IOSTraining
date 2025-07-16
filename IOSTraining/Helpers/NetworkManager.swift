@@ -116,4 +116,31 @@ final class NetworkManager {
                 }
             }
     }
+
+    func fetchFavoriteProducts (userId: Int, sort: String, completion: @escaping (ProductResponse) -> Void) {
+        let productResponse = ProductResponse(
+            products: [],
+            total: 0,
+            skip: 0,
+            limit: 0
+        )
+        AF.request("https://dummyjson.com/products?sortBy=\(sort)&order=asc")
+            .responseJSON { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let tempData = try JSONSerialization.data(withJSONObject: data, options: [])
+                        let decoder = JSONDecoder()
+                        let products = try decoder.decode(ProductResponse.self, from: tempData)
+                        completion(products)
+                    } catch {
+                        completion(productResponse)
+                        print("Unable to serialize json object")
+                    }
+                case .failure(let error):
+                    completion(productResponse)
+                    print("Error: \(error)")
+                }
+            }
+    }
 }

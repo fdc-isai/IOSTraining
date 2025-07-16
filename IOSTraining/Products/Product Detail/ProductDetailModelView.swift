@@ -12,10 +12,10 @@ class ProductDetailModelView: ObservableObject {
     @Published var productImageURL = ""
     @Published var productCartItemCount = 1
     @Published var addedToCartAlert = false
-
+    @Published var isFavorite = false
     @Published var selectedProduct: [Product] = []
-
     @Published var recoProductsViewModel: ProductRecommendModelView = .init()
+
 
     func fetchProduct (by id: Int) {
         NetworkManager.shared.getProductDetail(id: id) { response in
