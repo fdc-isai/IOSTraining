@@ -61,7 +61,7 @@ struct FavoriteProductsSwiftUI: View {
     private func sortingView() -> some View {
         ScrollView(.horizontal) {
             HStack(spacing: 12) {
-                Button("Sort Title") {
+                Button("Sort by Title") {
                     viewModel.sort = "title"
                 }
                 .padding(.vertical, 8)
