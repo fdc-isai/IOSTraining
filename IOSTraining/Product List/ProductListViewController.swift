@@ -60,8 +60,13 @@ extension ProductListViewController:UICollectionViewDelegate{
         didSelectItemAt indexPath: IndexPath
     ) {
 
-        let vc = UIHostingController(rootView: ProductDetailSwiftUI(product: products[indexPath.row]))
-        vc.hidesBottomBarWhenPushed = true 
+        let vc = UIHostingController(
+            rootView: ProductDetailSwiftUI(
+                productId: products[indexPath.row].id,
+                viewModel: ProductDetailModelView()
+            )
+        )
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
