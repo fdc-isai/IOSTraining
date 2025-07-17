@@ -14,12 +14,7 @@ struct RecommendedProductsSwiftUI: View {
     @State private var selectedProduct: Product? = nil
 
     var body: some View {
-//        NavigationStack {
         mainRecommendedProducts().environmentObject(viewModel)
-//                .navigationDestination(item: $selectedProduct) { product in
-//                    ProductDetailSwiftUI(productId: product.id, viewModel: ProductDetailModelView())
-//                }
-//        }
 
     }
 
@@ -31,19 +26,22 @@ struct RecommendedProductsSwiftUI: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .top) {
                         ForEach(viewModel.recommendedProducts, id: \.id) { currentProduct in
-                            Button {
-                                selectedProduct = currentProduct
+                            NavigationLink {
+                                ProductDetailSwiftUI(
+                                    productId: currentProduct.id
+                                )
                             } label: {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    productImage(thumbnailImage: currentProduct.thumbnail)
-                                    productDetails(for: currentProduct)
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        productImage(thumbnailImage: currentProduct.thumbnail)
+                                        productDetails(for: currentProduct)
 
-                                }
-                                .padding()
-                                .frame(width: 150, alignment: .leading)
-                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
-                                .shadow(color: .gray.opacity(0.1), radius: 4, x: 0, y: 2)
+                                    }
+                                    .padding()
+                                    .frame(width: 150, alignment: .leading)
+                                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+                                    .shadow(color: .gray.opacity(0.1), radius: 4, x: 0, y: 2)
                             }
+
 
                         }
                     }

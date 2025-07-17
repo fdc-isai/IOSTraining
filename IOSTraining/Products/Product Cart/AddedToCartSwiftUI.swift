@@ -10,8 +10,6 @@ import SwiftUI
 struct AddedToCartSwiftUI: View {
     @EnvironmentObject var viewModel: ProductDetailModelView
 
-    @Binding var goToCart : Bool
-
     var body: some View {
 
             VStack(spacing: 16) {
@@ -26,21 +24,19 @@ struct AddedToCartSwiftUI: View {
                         .font(.headline)
                         .foregroundColor(.black)
 
-                    Button {
-                        goToCart = true
-//                        viewModel
-//                            .addToCart(
-//                                userId: 1, // temp
-//                                products: viewModel.selectedProduct
-//                            )
+
+                    NavigationLink {
+                        ShoppingCartSwiftUI()
                     } label: {
-                        Text("Go to Cart")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 10)
-                            .background(Color.blue)
-                            .cornerRadius(8)
+
+                            Text("Go to Cart")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 24)
+                                .padding(.vertical, 10)
+                                .background(Color.blue)
+                                .cornerRadius(8)
+
                     }
                 }
             }

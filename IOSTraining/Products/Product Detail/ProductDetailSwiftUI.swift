@@ -4,7 +4,6 @@ import Kingfisher
 struct ProductDetailSwiftUI: View {
     var productId: Int
     @StateObject var viewModel: ProductDetailModelView = .init()
-    @State private var goToCart = false
 
     var body: some View {
             ZStack {
@@ -19,15 +18,11 @@ struct ProductDetailSwiftUI: View {
                         .ignoresSafeArea()
                         .onTapGesture {
                             viewModel.addedToCartAlert = false
-                            goToCart = false
                         }
 
-                    AddedToCartSwiftUI( goToCart: $goToCart)
+                    AddedToCartSwiftUI()
                 }
 
-            }
-            .sheet(isPresented: $goToCart) {
-                ShoppingCartSwiftUI()
             }
             .environmentObject(viewModel.recoProductsViewModel)
 

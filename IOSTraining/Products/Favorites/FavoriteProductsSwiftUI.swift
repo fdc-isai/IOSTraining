@@ -17,7 +17,13 @@ struct FavoriteProductsSwiftUI: View {
 
             VStack(spacing: 16) {
                 ForEach(viewModel.favoriteProducts) { product in
-                    productDetail(product: product)
+
+                    NavigationLink {
+                        ProductDetailSwiftUI(productId: product.id)
+                    } label: {
+                        productDetail(product: product)
+                    }
+
                 }
 
                 Divider()
@@ -95,7 +101,7 @@ struct FavoriteProductsSwiftUI: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(product.title ?? "Untitled")
                 .font(.headline)
-                .lineLimit(2)
+                .lineLimit(1)
 
             HStack {
                 Image(systemName: "storefront")
