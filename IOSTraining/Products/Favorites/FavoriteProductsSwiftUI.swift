@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import Kingfisher
 
 struct FavoriteProductsSwiftUI: View {
@@ -13,7 +14,9 @@ struct FavoriteProductsSwiftUI: View {
 
     var body: some View {
         ScrollView {
-            sortingView()
+            ProductMainNavSwiftUI(selectedTab: "favorite")
+
+            SortingView()
 
             VStack(spacing: 16) {
                 ForEach(viewModel.favoriteProducts) { product in
@@ -64,7 +67,7 @@ struct FavoriteProductsSwiftUI: View {
         .frame(alignment: .leading)
     }
 
-    private func sortingView() -> some View {
+    private func SortingView() -> some View {
         ScrollView(.horizontal) {
             HStack(spacing: 12) {
                 Button("Sort by Title") {
@@ -145,6 +148,6 @@ struct FavoriteProductsSwiftUI: View {
     }
 }
 
-#Preview {
-    FavoriteProductsSwiftUI()
-}
+//#Preview {
+//    FavoriteProductsSwiftUI()
+//}

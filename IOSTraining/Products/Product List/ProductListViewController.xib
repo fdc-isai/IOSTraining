@@ -33,7 +33,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zan-pe-cae">
                                     <rect key="frame" x="186.66666666666663" y="0.0" width="166.33333333333337" height="30"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="tinted" title="Favorites"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Favorites"/>
                                     <connections>
                                         <action selector="onTapGoToFavorites:" destination="-1" eventType="touchUpInside" id="KJ7-7Q-WWe"/>
                                     </connections>

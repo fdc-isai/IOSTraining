@@ -32,6 +32,7 @@ struct ProductDetailSwiftUI: View {
     private func mainProductDetailView() -> some View {
         ScrollView{
                 LazyVStack(spacing: 10) {
+                    ProductMainNavSwiftUI(selectedTab: "all")
                     // product details
                     productMainImageView
                     productThumbnailsView
