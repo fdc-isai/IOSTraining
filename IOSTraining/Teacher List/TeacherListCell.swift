@@ -30,7 +30,7 @@ class TeacherListCell: UITableViewCell {
 
     }
     
-    func configureCell(_ teacher: Teacher){
+    func configureCell(_ teacher: GenshinTeacher){
         teacherNameLabel.text = teacher.name
         teaherAddressLabel.text = teacher.address
         teacherAgeLabel.text = String(teacher.age)

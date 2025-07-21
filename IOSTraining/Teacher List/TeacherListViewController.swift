@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Teacher {
+struct GenshinTeacher {
     let status: Int
     let name: String
     let address: String
@@ -28,8 +28,8 @@ class TeacherListViewController: UIViewController {
     private let cellIdentifier = "TeacherListCell"
     private let bannerCellIdentifier = "BannerCell"
 
-    private var teachers: [Teacher] = [
-        Teacher(
+    private var teachers: [GenshinTeacher] = [
+        GenshinTeacher(
             status: 1,
             name: "Teacher Raiden",
             address: "Philippines",
@@ -39,7 +39,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_raiden"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 2,
             name: "Teacher Mavuika",
             address: "Philippines",
@@ -49,7 +49,7 @@ class TeacherListViewController: UIViewController {
             coin: 200,
             imageName: "user_mavuika"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Venti",
             address: "Japan",
@@ -59,7 +59,7 @@ class TeacherListViewController: UIViewController {
             coin: 150,
             imageName: "user_venti"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 3,
             name: "Teacher Zhongli",
             address: "Philippines",
@@ -69,7 +69,7 @@ class TeacherListViewController: UIViewController {
             coin: 300,
             imageName: "user_zhongli"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 3,
             name: "Teacher Nahida",
             address: "Japan",
@@ -79,7 +79,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_nahida"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 2,
             name: "Teacher Yelan",
             address: "Philippines",
@@ -89,7 +89,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_yelan"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Mavuika II",
             address: "Canada",
@@ -99,7 +99,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_mavuika"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 3,
             name: "Teacher Raiden II",
             address: "UK",
@@ -109,7 +109,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_raiden"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Venti II",
             address: "Australia",
@@ -119,7 +119,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_venti"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 2,
             name: "Teacher Nahida II",
             address: "Singapore",
@@ -129,7 +129,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_nahida"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Zhongli II",
             address: "Germany",
@@ -139,7 +139,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_zhongli"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 3,
             name: "Teacher Yelan II",
             address: "France",
@@ -149,7 +149,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_yelan"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Mavuika III",
             address: "Taiwan",
@@ -159,7 +159,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_mavuika"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Venti II",
             address: "India",
@@ -169,7 +169,7 @@ class TeacherListViewController: UIViewController {
             coin: 100,
             imageName: "user_venti"
         ),
-        Teacher(
+        GenshinTeacher(
             status: 1,
             name: "Teacher Raiden III",
             address: "South Korea",

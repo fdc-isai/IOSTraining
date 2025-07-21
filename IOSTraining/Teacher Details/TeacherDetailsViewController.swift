@@ -12,7 +12,7 @@ class TeacherDetailsViewController: UIViewController {
     @IBOutlet weak var recoTutorCollectionView: UICollectionView!
     @IBOutlet weak var moreImageView: UIImageView!
 
-    var teacher: Teacher?
+    var teacher: GenshinTeacher?
 
     let recoTutorCellIdentifier = "RecoTutorCell"
 
