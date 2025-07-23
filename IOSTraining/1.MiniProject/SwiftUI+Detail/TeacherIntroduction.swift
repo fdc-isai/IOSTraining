@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct TeacherIntroduction: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
             VStack (alignment: .leading, spacing: 10) {
                 Text("Introduction")
                     .font(.headline)
-                Text("Welcome to Native Camp! This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI.. This teacher is for test only of FDCI..")
+                Text(viewModel.teacher?.message_translation ?? "")
                     .font(.caption)
             }
 
@@ -21,13 +23,16 @@ struct TeacherIntroduction: View {
                 Text("Coins consumed")
                     .font(.headline)
                 VStack (alignment: .leading) {
-                    Text("Sudden Lesson: No coins required")
+                    Text("Sudden Lesson: \(viewModel.teacher?.coin != nil ? "\(viewModel.teacher?.coin ?? 0) coins" : "No coins required")")
                         .font(.caption)
-                    Text("Booked Lesson: 100 coins")
+                    Text("Booked Lesson: \(viewModel.teacher?.coin != nil ? "\(viewModel.teacher?.coin ?? 0) coins" : "No coins required")")
                         .font(.caption)
-                    Text("(Callan Unlimited Option: Coins Returned After The Lesson")
-                        .font(.caption)
-                        .foregroundColor(Color.red)
+
+                    if ((viewModel.teacher?.callan_unlimited_flg) == 1) {
+                        Text("(Callan Unlimited Option: Coins Returned After The Lesson")
+                            .font(.caption)
+                            .foregroundColor(Color.red)
+                    }
 
                 }
             }

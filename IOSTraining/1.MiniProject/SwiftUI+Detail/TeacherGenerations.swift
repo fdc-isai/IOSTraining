@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct TeacherGenerations: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
             Text("Generation chooosing this instructor")
                 .font(.headline)
 
-            let generationPercentage: [Double] = [
-                14.29,
-                9.52,
-                0,
-                4.76,
-                61.9,
-                4.76,
-                4.76
-            ]
+            let generationPercentage: [Double] = viewModel.teacher?.generation ?? []
 
             let generationList: [String] = [
                 "-9 years",

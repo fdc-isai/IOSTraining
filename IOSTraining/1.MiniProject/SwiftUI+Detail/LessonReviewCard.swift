@@ -23,7 +23,7 @@ struct LessonReviewCard: View {
 
                 Spacer()
 
-                Text(message)
+                Text(date)
                     .font(.caption)
 
             }

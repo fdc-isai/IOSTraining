@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct TeacherName: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         HStack (spacing: 10) {
-            Image("user_mavuika")
-                .resizable()
+            OnlineImageView(imageURL: viewModel.teacher?.images.main ?? "")
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
 
             Circle()
-                .fill(Color.blue)
+                .fill(viewModel.teacher?.state_button != 6 ? Color.blue : Color.pink)
                 .frame(width: 15, height: 15)
 
             VStack (alignment: .leading) {
-                Text("Mavuika")
+                Text(viewModel.teacher?.name_eng ?? "")
                     .font(.headline)
-                Text("(Age: 30)")
+                Text("(Age: \(viewModel.teacher?.age ?? 0))")
                     .font(.caption)
             }
 
@@ -33,7 +34,7 @@ struct TeacherName: View {
         .padding(10)
     }
 }
-
-#Preview {
-    TeacherName()
-}
+//
+//#Preview {
+//    TeacherName()
+//}

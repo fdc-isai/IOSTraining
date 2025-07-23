@@ -36,7 +36,7 @@ struct TagView: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .background(Color(white: 0.4))
-            .frame(width: .infinity)
+            .frame(maxWidth: .infinity)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }

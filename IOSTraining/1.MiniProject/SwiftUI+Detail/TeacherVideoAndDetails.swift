@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TeacherVideoAndDetails: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         HStack (alignment: .top, spacing: 10) {
             TeacherImageOrVideo()
@@ -17,25 +19,24 @@ struct TeacherVideoAndDetails: View {
     }
 
     private func TeacherImageOrVideo() -> some View {
-        Image("profile_yelan")
-            .resizable()
-            .scaledToFit()
-            .frame(width: .infinity)
+        OnlineImageView(imageURL: viewModel.teacher?.images.main ?? "")
     }
 
     private func TeacherDetailItems() -> some View {
         VStack (alignment: .leading) {
-            IconLabelView(icon: "flaticon_monitor", label: "5 years 9 months")
-            IconLabelView(icon: "flaticon_star", label: "3.43")
-            IconLabelView(icon: "flaticon_woman", label: "4.92")
-            IconLabelView(icon: "flaticon_chart", label: "10376 times")
-            IconLabelView(icon: "flaticon_heart_filled", label: "1240 people")
-            IconLabelView(icon: "flaticon_clock", label: "2025-07-18 (Fri)")
+//             IconLabelView(icon: viewModel.teacher?.country_image ?? "", label: viewModel.teacher?.nationality_name ?? "", type: "country")
+            IconLabelView(icon: "flag_unknown", label: viewModel.teacher?.nationality_name ?? "", type: "country")
+            IconLabelView(icon: "flaticon_monitor", label: viewModel.teacher?.instructor_history ?? "")
+            IconLabelView(icon: "flaticon_star", label: "\(viewModel.teacher?.rating ?? 0.00)")
+            IconLabelView(icon: "flaticon_woman", label: "\(viewModel.teacher?.kids_rating ?? 0.00)")
+            IconLabelView(icon: "flaticon_chart", label: "\(viewModel.teacher?.lessons ?? 0) times")
+            IconLabelView(icon: "flaticon_heart_filled", label: "\(viewModel.teacher?.goods ?? 0) people")
+            IconLabelView(icon: "flaticon_clock",label: viewModel.teacher?.getLastLoginDate() ?? "")
 
+            // dummy for now
             IconLabelView(icon: "flaticon_friend", label: "Friendly", type: "big")
             IconLabelView(icon: "flaticon_book", label: "Speaks slearly", type: "big")
             IconLabelView(icon: "flaticon_ear", label: "Good listener", type: "big")
-
         }
         .padding()
     }
@@ -43,6 +44,6 @@ struct TeacherVideoAndDetails: View {
 
 }
 
-#Preview {
-    TeacherVideoAndDetails()
-}
+//#Preview {
+//    TeacherVideoAndDetails()
+//}

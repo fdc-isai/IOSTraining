@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct TeacherDetailSwiftUI: View {
-    var teacherId: Int = 623 // temp
+    var teacherId: Int = 116763 // temp
     @StateObject var viewModel: TeacherDetailModelView = .init()
+    @State var selectedTab = "Tutor's Profile"
 
     var body: some View {
-        Text("Hello from TeacherDetailSwiftUI!")
-            .onAppear(){
-                print("here")
-                viewModel.fetchTeacherDetail(teacherId)
-            }
-        /*
         ZStack {
             Color.black.ignoresSafeArea()
 
@@ -26,26 +21,28 @@ struct TeacherDetailSwiftUI: View {
                     TeacherName()
                     TeacherVideoAndDetails()
                     TeacherButtons()
+                    TeacherTabs(selectedTab: $selectedTab)
 
+                    if (selectedTab == "Tutor's Profile") {
+                        // TAB - Tutor's Profile
+                        TeacherIntroduction()
+                        TeacherFeatures()
+                        TeacherHobbies()
+                        TeacherWorkExperience()
+                        TeacherGenerations()
+                        TeacherGalleryPreview()
+                        TeacherRecommended()
+                    } else if (selectedTab == "Lesson Detail") {
+                        // TAB - Lesson Detail
+                        LessonAchievements()
+                        LessonWithThisTutor()
+                        LessonCompatibleTextbooks()
 
-                    // TAB - Tutor's Profile
-                    TeacherIntroduction()
-                    TeacherFeatures()
-                    TeacherHobbies()
-                    TeacherWorkExperience()
-                    TeacherGenerations()
-                    TeacherGalleryPreview()
-                    TeacherRecommended()
-
-                    // TAB - Lesson Detail
-                    LessonAchievements()
-                    LessonWithThisTutor()
-                    LessonCompatibleTextbooks()
-
-
-                    // TAB - Reviews
-                    LessonRating()
-                    LessonReviews()
+                    } else if (selectedTab == "Reviews") {
+                        // TAB - Reviews
+                        LessonRating()
+                        LessonReviews()
+                    }
 
                 }
 
@@ -53,7 +50,10 @@ struct TeacherDetailSwiftUI: View {
             .padding()
         }
         .foregroundColor(.white)
-         */
+        .onAppear {
+            viewModel.fetchTeacherDetail(teacherId)
+        }
+        .environmentObject(viewModel)
     }
 
 

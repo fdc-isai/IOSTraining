@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct TeacherGalleryPreview: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("Gallery")
                 .font(.headline)
 
             HStack {
-                previewImage("user_mavuika")
-                previewImage("user_nahida")
-                previewImage("user_raiden")
+                ForEach((viewModel.teacher?.images.album ?? []).prefix(3), id: \.self) { image in
+                    OnlineImageView(imageURL: image)
+                        .frame(maxWidth: .infinity)
+                }
+
             }
 
             Text("See More")
@@ -25,13 +29,6 @@ struct TeacherGalleryPreview: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .padding()
-    }
-
-    private func previewImage(_ name: String) -> some View {
-        Image(name)
-            .resizable()
-            .scaledToFit()
-            .frame(maxWidth: .infinity)
     }
 }
 

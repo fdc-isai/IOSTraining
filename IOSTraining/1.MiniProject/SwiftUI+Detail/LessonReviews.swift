@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct LessonReviews: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
-        ForEach(0..<7, id: \.self){_ in
-            LessonReviewCard(starCount: 5, date: "2025/12", message: "Good correction.")
+        if let userReview: Review = viewModel.teacher?.review {
+            LessonReviewCard(
+                starCount: Int(userReview.rating ?? "5") ?? 5,
+                date: userReview.date ?? "",
+                message: userReview.message ?? ""
+            )
         }
     }
 }

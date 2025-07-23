@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TeacherFeatures: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
         VStack{
-            let featureTags = [
-                "Good Listener", "For children", "Speaks Clearly"
-            ]
+            let featureTags: [String] = viewModel.teacher?.features ?? []
             TagList(title: "Features", tags : featureTags)
         }
         .padding()

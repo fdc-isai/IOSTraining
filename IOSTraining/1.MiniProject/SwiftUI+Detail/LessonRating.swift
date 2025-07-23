@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LessonRating: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
     var body: some View {
         VStack (alignment: .center, spacing: 10) {
             HStack {
@@ -21,7 +22,7 @@ struct LessonRating: View {
                         .resizable()
                         .frame(width: 12, height: 12)
 
-                    Text("3.43")
+                    Text("\(viewModel.teacher?.rating ?? 0.0)")
                         .font(.headline)
                 }
                 .padding()
@@ -54,13 +55,7 @@ struct LessonRating: View {
 
     private func RatingsChart() -> some View {
         VStack (alignment: .leading, spacing: 10) {
-            let ratings: [Int] = [
-                7,
-                29,
-                64,
-                0,
-                5
-            ]
+            let ratings: [Int] = viewModel.teacher?.kids_ratings ?? []
 
             let ratingsGuide: [Int] = [
                 5,

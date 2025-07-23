@@ -8,59 +8,11 @@
 import SwiftUI
 
 struct LessonCompatibleTextbooks: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
     @State private var showAll = false
 
     var body: some View {
-        let dummyTextbooks = [
-            45,
-            213,
-            208,
-            51,
-            193,
-            194,
-            195,
-            188,
-            191,
-            178,
-            155,
-            152,
-            121,
-            78,
-            59,
-            72,
-            174,
-            79,
-            93,
-            5,
-            90,
-            50,
-            13,
-            123,
-            49,
-            65,
-            201,
-            99,
-            173,
-            63,
-            105,
-            203,
-            84,
-            106,
-            82,
-            107,
-            88,
-            160,
-            196,
-            110,
-            113,
-            4,
-            118,
-            125,
-            119,
-            117,
-            164,
-            198
-        ]
+        let dummyTextbooks = viewModel.teacher?.course_badge ?? []
         let columns = Array(repeating: GridItem(.flexible()), count: 4)
         VStack(spacing: 10) {
             Text("Compatible textbooks")
@@ -71,7 +23,7 @@ struct LessonCompatibleTextbooks: View {
                 ForEach(showAll ? dummyTextbooks : Array(dummyTextbooks[0..<8]), id: \.self) { id in
                     TextbookCard(
                         title: "Textbook #\(id)",
-                        imageUrl: "flaticon_book"
+                        imageUrl: viewModel.getRandomTBImage()
                     )
                 }
             }

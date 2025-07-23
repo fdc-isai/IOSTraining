@@ -19,7 +19,7 @@ struct IconLabelView: View {
                 Image(icon)
                     .resizable()
                     .frame(width: 30, height: 30)
-                Text(label)
+                Text("\(label)")
                     .font(.caption)
             }
         case "vertical":
@@ -27,16 +27,26 @@ struct IconLabelView: View {
                 Image(icon)
                     .resizable()
                     .frame(width: 30, height: 30)
-                Text(label)
+                Text("\(label)")
                     .font(.caption)
             }
             .frame(maxWidth: .infinity)
+        case "country":
+            HStack {
+//                OnlineImageView(imageURL: icon)
+//                    .frame(width: 30, height: 20)
+                Image(icon)
+                    .resizable()
+                    .frame(width: 20, height: 12)
+                Text("\(label)")
+                    .font(.caption)
+            }
         default:
             HStack {
                 Image(icon)
                     .resizable()
                     .frame(width: 15, height: 15)
-                Text(label)
+                Text("\(label)")
                     .font(.caption)
             }
         }
