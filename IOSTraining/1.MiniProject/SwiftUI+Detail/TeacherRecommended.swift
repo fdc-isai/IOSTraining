@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TeacherRecommended: View {
+    @EnvironmentObject var viewModel: TeacherDetailModelView
+
     var body: some View {
-        let dummyTeachers = [
-            "Stephen", "John", "Carmel", "Ylona", "Rey"]
+        let recoTeachers: [TeacherThumbnail] = viewModel.recommendedTeachers ?? []
 
         VStack (alignment: .leading) {
             Text("Recommended tutors")
@@ -19,7 +20,7 @@ struct TeacherRecommended: View {
 
             ScrollView(.horizontal) {
                 HStack(spacing:10) {
-                    ForEach(dummyTeachers, id: \.self) { teacher in
+                    ForEach(recoTeachers, id: \.self) { teacher in
                         TeacherCard(teacher: teacher)
                     }
                 }

@@ -10,6 +10,7 @@ import Foundation
 class TeacherDetailModelView: ObservableObject {
     @Published var teacher: Teacher?
     @Published var reviews: [Review]?
+    @Published var recommendedTeachers: [TeacherThumbnail]?
 
     func fetchTeacherDetail (_ id: Int) {
         let params: [String: Any] = [
@@ -24,6 +25,14 @@ class TeacherDetailModelView: ObservableObject {
         NCNetworkManager.shared.getTeacherDetail(params: params) { response in
             DispatchQueue.main.async {
                 self.teacher = response.teacher
+            }
+        }
+    }
+
+    func fetchRecommendedTeachers () {
+        NCNetworkManager.shared.getTopTeachersList() { response in
+            DispatchQueue.main.async {
+                self.recommendedTeachers = response.teachers
             }
         }
     }

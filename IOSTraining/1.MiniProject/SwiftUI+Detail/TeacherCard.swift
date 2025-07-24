@@ -8,34 +8,38 @@
 import SwiftUI
 
 struct TeacherCard: View {
-    var teacher: String = ""
+    var teacher: TeacherThumbnail
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Image("user_mavuika")
-                .resizable()
-                .scaledToFit()
+            OnlineImageView(imageURL: teacher.image_main)
+                .scaledToFill()
                 .frame(width: 120, height: 120)
                 .background(Color.white)
                 .clipped()
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("Mavuika")
+                Text(teacher.name_eng)
                     .font(.subheadline)
+                    .lineLimit(1)
 
                 HStack(spacing: 10) {
-                    Image("flag_philippines")
+                    Image(getFlagImage(for: teacher.country_name) ?? "flag_unknown")
                         .resizable()
                         .frame(width: 20, height: 12)
 
-                    Text("Philippines")
+                    Text(teacher.country_name)
                         .font(.caption2)
+                        .lineLimit(1)
                 }
 
                 VStack(alignment: .leading, spacing: 5) {
-                    IconLabelView(icon: "flaticon_star", label: "5.00")
-                    IconLabelView(icon: "flaticon_monitor", label: "14575 times")
-                    IconLabelView(icon: "flaticon_heart", label: "3731 people")
+                    IconLabelView(icon: "flaticon_star", label: "\(teacher.rating ?? 0.00)")
+                    IconLabelView(icon: "flaticon_monitor", label: "\(teacher.lessons ?? 0) times")
+                    IconLabelView(
+                        icon: "flaticon_heart",
+                        label: "\(teacher.favorite_count ?? 0) people"
+                    )
                 }
             }
             .padding(.horizontal, 10)
@@ -45,8 +49,10 @@ struct TeacherCard: View {
         .background(Color(.darkGray))
         .cornerRadius(10)
     }
-}
 
-#Preview {
-    TeacherCard()
+    func getFlagImage(for country: String) -> String? {
+        let normalized = country.lowercased().replacingOccurrences(of: " ", with: "")
+        let imageName = "flag_\(normalized)"
+        return imageName
+    }
 }

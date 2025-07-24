@@ -48,6 +48,7 @@ struct IconLabelView: View {
                     .frame(width: 15, height: 15)
                 Text("\(label)")
                     .font(.caption)
+                    .lineLimit(1)
             }
         }
     }

@@ -30,7 +30,7 @@ struct TeacherVideoAndDetails: View {
             IconLabelView(icon: "flaticon_star", label: "\(viewModel.teacher?.rating ?? 0.00)")
             IconLabelView(icon: "flaticon_woman", label: "\(viewModel.teacher?.kids_rating ?? 0.00)")
             IconLabelView(icon: "flaticon_chart", label: "\(viewModel.teacher?.lessons ?? 0) times")
-            IconLabelView(icon: "flaticon_heart_filled", label: "\(viewModel.teacher?.goods ?? 0) people")
+            IconLabelView(icon: "flaticon_heart_filled", label: "\(viewModel.teacher?.favorite_count ?? 0) people")
             IconLabelView(icon: "flaticon_clock",label: viewModel.teacher?.getLastLoginDate() ?? "")
 
             // dummy for now

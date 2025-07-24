@@ -15,11 +15,14 @@ class TeacherListViewController: UIViewController {
     private let cellIdentifier = "TeacherListCell"
     private let bannerCellIdentifier = "BannerCell"
     private let storyCellIdentifier = "StoryCell"
-    private var teachers: [TeacherList] = []
-    private var teacherChunks: [[TeacherList]] = []
+    private let avatarCellIdentifier = "AvatarCell"
+    private let topTeacherCellIdentifier = "TopTeachersCell"
+    private var teachers: [TeacherThumbnail] = []
+    private var teacherChunks: [[TeacherThumbnail]] = []
     private var displaySections: [SectionType] = []
+
     private var banners: [String] = [
-        "banner_yelan", "banner_mauika", "banner_raiden", "banner_nahida","banner_yelan", "banner_mauika", "banner_raiden", "banner_nahida"
+        "banner_1", "banner_2"
     ]
 
     override func viewDidLoad() {
@@ -39,8 +42,8 @@ class TeacherListViewController: UIViewController {
         }
 
         // main teacher list
-        let nib = UINib(nibName: cellIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        let nibMainTeacher = UINib(nibName: cellIdentifier, bundle: nil)
+        tableView.register(nibMainTeacher, forCellReuseIdentifier: cellIdentifier)
 
         let nibMenu = UINib(nibName: menuCellIdentifier, bundle: nil)
         tableView.register(nibMenu, forCellReuseIdentifier: menuCellIdentifier)
@@ -51,9 +54,15 @@ class TeacherListViewController: UIViewController {
         let nibStory = UINib(nibName: storyCellIdentifier, bundle: nil)
         tableView.register(nibStory, forCellReuseIdentifier: storyCellIdentifier)
 
+        let nibAvatar = UINib(nibName: avatarCellIdentifier, bundle: nil)
+        tableView.register(nibAvatar, forCellReuseIdentifier: avatarCellIdentifier)
 
-        let nib2 = UINib(nibName: bannerCellIdentifier, bundle: nil)
-        tableView.register(nib2, forCellReuseIdentifier: bannerCellIdentifier)
+        let nibTopTeacher = UINib(nibName: topTeacherCellIdentifier, bundle: nil)
+        tableView.register(nibTopTeacher, forCellReuseIdentifier: topTeacherCellIdentifier)
+
+        let nibBanner = UINib(nibName: bannerCellIdentifier, bundle: nil)
+        tableView.register(nibBanner, forCellReuseIdentifier: bannerCellIdentifier)
+
 
     }
 
@@ -67,16 +76,15 @@ class TeacherListViewController: UIViewController {
 
             switch i {
             case 0:
-                displaySections.append(.story)
+                displaySections.append(.avatar)
             case 1:
                 displaySections.append(.banner(index: 0))
             case 2:
-                displaySections.append(.topTeacher)
+                displaySections.append(.story)
             case 3:
                 displaySections.append(.banner(index: 1))
-                displaySections.append(.avatar)
             case 4:
-                displaySections.append(.banner(index: 2))
+                displaySections.append(.topTeacher)
             default:
                 break
             }
@@ -125,19 +133,11 @@ extension TeacherListViewController: UITableViewDataSource {
             return cell
 
         case .topTeacher:
-            return tableView.dequeueReusableCell(withIdentifier: sortingCellIdentifier, for: indexPath)
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TopTeacherCell", for: indexPath) as! TopTeacherCell
-//            return cell
+            return tableView.dequeueReusableCell(withIdentifier: topTeacherCellIdentifier, for: indexPath)
 
         case .avatar:
-            return tableView.dequeueReusableCell(withIdentifier: sortingCellIdentifier, for: indexPath)
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AvatarCell", for: indexPath) as! AvatarCell
-//            return cell
+            return tableView.dequeueReusableCell(withIdentifier: avatarCellIdentifier, for: indexPath)
         }
-
-        return UITableViewCell()
-
-        
 
     }
 

@@ -45,13 +45,13 @@ struct TeacherDetailSwiftUI: View {
                     }
 
                 }
-
             }
             .padding()
         }
         .foregroundColor(.white)
         .onAppear {
             viewModel.fetchTeacherDetail(teacherId)
+            viewModel.fetchRecommendedTeachers()
         }
         .environmentObject(viewModel)
     }
