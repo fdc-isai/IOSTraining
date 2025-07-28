@@ -41,5 +41,4 @@ class TeacherDetailModelView: ObservableObject {
         let randomNumber = Int.random(in: 1...12)
         return "tb_\(randomNumber)"
     }
-
 }

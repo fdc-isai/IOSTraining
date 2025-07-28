@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LessonRating: View {
     @EnvironmentObject var viewModel: TeacherDetailModelView
+    
     var body: some View {
         VStack (alignment: .center, spacing: 10) {
             HStack {

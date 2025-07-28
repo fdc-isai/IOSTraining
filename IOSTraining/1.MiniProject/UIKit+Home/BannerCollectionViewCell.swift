@@ -8,7 +8,6 @@
 import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var bannerImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

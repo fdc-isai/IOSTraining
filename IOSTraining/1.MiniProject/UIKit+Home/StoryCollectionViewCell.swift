@@ -47,5 +47,4 @@ class StoryCollectionViewCell: UICollectionViewCell {
         storyImageView.layer.borderWidth = 2
 
     }
-
 }

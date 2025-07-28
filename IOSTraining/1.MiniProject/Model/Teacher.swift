@@ -7,6 +7,7 @@
 
 import Foundation
 
+// tesacher search api response with pagination data
 struct TeacherResponse: Codable {
     let teachers: [TeacherThumbnail]?
     let has_next: Bool?
@@ -19,6 +20,7 @@ struct TeacherResponse: Codable {
     }
 }
 
+// for teacher thunmbnail (declare needed details only)
 struct TeacherThumbnail: Codable, Hashable {
     let id: Int
     let name_eng: String
@@ -38,6 +40,8 @@ struct TeacherThumbnail: Codable, Hashable {
     let goods: Int?
 }
 
+
+// for teacher detail page (all)
 struct Teacher: Codable {
     let id: Int
     let name_eng: String
@@ -96,33 +100,10 @@ struct Teacher: Codable {
     }
 }
 
-
-struct Evaluation: Codable {
-    let count: Int
-    let value: String
-    let comment_count: Int
-    let self_comment_count: Int
-}
-
 struct TeacherImages: Codable {
     let main: String
     let album: [String]?
 }
-
-struct ResidentialCountry: Codable {
-    let residential_country_id: String
-    let residential_country_name: String
-    let residential_country_eng: String
-    let residential_country_image: String
-    let residential_country_display_flg: String
-}
-
-struct ResidentialRegion: Codable {
-    let residential_region_name_eng: String
-    let residential_region_name: String
-    let residential_region_delete_flg: Int
-}
-
 
 struct ReserveAndCancel: Codable {
     let this_month_reserved: Int
@@ -138,12 +119,6 @@ struct Review: Codable, Hashable {
     let textbook_image_url: String?
     let date: String?
 }
-
-struct StudentVirtualBackground: Codable {
-    let vbg_id: Int?
-    let vbgImage: String?
-}
-
 
 struct TeacherDetailsModel: Codable {
     let teacher: Teacher
@@ -240,17 +215,13 @@ struct TeacherDetailsModel: Codable {
         return dummyTeacherDetails
 
     }
-
 }
 
 struct Banner {
     let imageName: String
 }
 
-
 enum Sections {
     case teachers([TeacherThumbnail])
     case banner(Banner)
 }
-
-

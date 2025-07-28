@@ -16,7 +16,7 @@ struct LessonReviewCard: View {
         VStack (alignment: .leading, spacing: 10){
             HStack{
                 ForEach(0..<starCount, id: \.self){_ in
-                    Image("flaticon_star")
+                    Image(.flaticonStar)
                         .resizable()
                         .frame(width: 15, height: 15)
                 }

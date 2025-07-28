@@ -8,7 +8,6 @@
 import UIKit
 
 class SortingCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var sortView: UIView!
     @IBOutlet weak var sortTitleView: UILabel!
     override func awakeFromNib() {

@@ -10,8 +10,6 @@ import UIKit
 class TopTeachersCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var cellIdentifier = "TopTeachersCollectionViewCell"
-
-
     private var topteachers: [TeacherThumbnail] = []
 
     override func awakeFromNib() {
@@ -24,7 +22,6 @@ class TopTeachersCell: UITableViewCell {
                 self.collectionView.reloadData()
             }
         }
-
 
         collectionView.delegate = self
         collectionView.dataSource = self

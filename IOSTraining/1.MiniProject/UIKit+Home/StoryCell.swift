@@ -8,7 +8,6 @@
 import UIKit
 
 class StoryCell: UITableViewCell {
-
     @IBOutlet weak var storyCollectionView: UICollectionView!
     private var cellIdentier = "StoryCollectionViewCell"
     private var stories: [String] = [

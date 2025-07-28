@@ -18,7 +18,6 @@ struct TeacherWorkExperience: View {
                     .foregroundColor(Color.gray)
                 Text("Accounting")
                     .font(.caption)
-
             }
         }
         .padding()

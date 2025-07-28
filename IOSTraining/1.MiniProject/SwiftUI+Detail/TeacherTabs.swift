@@ -10,6 +10,7 @@ import SwiftUI
 struct TeacherTabs: View {
     @Binding var selectedTab: String
     let tabs = ["Tutor's Profile", "Lesson Detail", "Reviews"]
+    
     var body: some View {
         HStack (spacing: 10) {
             ForEach(tabs, id: \.self) { tab in

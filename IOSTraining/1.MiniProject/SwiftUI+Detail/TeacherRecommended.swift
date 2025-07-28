@@ -17,7 +17,6 @@ struct TeacherRecommended: View {
             Text("Recommended tutors")
                 .font(.headline)
 
-
             ScrollView(.horizontal) {
                 HStack(spacing:10) {
                     ForEach(recoTeachers, id: \.self) { teacher in

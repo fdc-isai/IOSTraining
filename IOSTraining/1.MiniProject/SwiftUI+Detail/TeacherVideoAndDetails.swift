@@ -24,7 +24,6 @@ struct TeacherVideoAndDetails: View {
 
     private func TeacherDetailItems() -> some View {
         VStack (alignment: .leading) {
-//             IconLabelView(icon: viewModel.teacher?.country_image ?? "", label: viewModel.teacher?.nationality_name ?? "", type: "country")
             IconLabelView(icon: "flag_unknown", label: viewModel.teacher?.nationality_name ?? "", type: "country")
             IconLabelView(icon: "flaticon_monitor", label: viewModel.teacher?.instructor_history ?? "")
             IconLabelView(icon: "flaticon_star", label: "\(viewModel.teacher?.rating ?? 0.00)")

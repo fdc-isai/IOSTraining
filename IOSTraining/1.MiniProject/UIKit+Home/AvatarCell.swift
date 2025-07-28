@@ -8,7 +8,6 @@
 import UIKit
 
 class AvatarCell: UITableViewCell {
-
     @IBOutlet weak var avatarCollectionView: UICollectionView!
     private var cellIdentifier = "AvatarCollectionViewCell"
     private var avatarTeachers: [TeacherThumbnail] = []

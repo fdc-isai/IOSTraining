@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class AvatarCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var imageView: CustomUIImageView!
     @IBOutlet weak var teacherNameLabelView: UILabel!
     @IBOutlet weak var teacherCountryView: UILabel!
@@ -22,8 +21,6 @@ class AvatarCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(_ teacher: TeacherThumbnail) {
-
-
         guard let url = URL(string: teacher.image_main!)
         else {
             return
@@ -52,7 +49,6 @@ class AvatarCollectionViewCell: UICollectionViewCell {
         imageView.layer.borderWidth = 1
         imageView.layer.backgroundColor = UIColor.systemGray2.cgColor
         imageView.layer.borderColor = UIColor.systemGray.cgColor
-
 
         teacherNameLabelView.text = teacher.name_eng
         teacherCountryView.text = teacher.country_name

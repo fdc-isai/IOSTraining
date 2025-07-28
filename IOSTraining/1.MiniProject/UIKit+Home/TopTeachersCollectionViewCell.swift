@@ -50,7 +50,6 @@ class TopTeachersCollectionViewCell: UICollectionViewCell {
         teacherImageView.layer.backgroundColor = UIColor.systemGray2.cgColor
         teacherImageView.layer.borderColor = UIColor.systemGray.cgColor
 
-
         teacherNameView.text = teacher.name_eng
         teacherCountryView.text = teacher.country_name
         teacherRatingView.text = "\(teacher.rating ?? 0.00)"

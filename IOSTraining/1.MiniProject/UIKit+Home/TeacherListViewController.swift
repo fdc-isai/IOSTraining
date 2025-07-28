@@ -20,7 +20,6 @@ class TeacherListViewController: UIViewController {
     private var teachers: [TeacherThumbnail] = []
     private var teacherChunks: [[TeacherThumbnail]] = []
     private var displaySections: [SectionType] = []
-
     private var banners: [String] = [
         "banner_1", "banner_2"
     ]
@@ -62,8 +61,6 @@ class TeacherListViewController: UIViewController {
 
         let nibBanner = UINib(nibName: bannerCellIdentifier, bundle: nil)
         tableView.register(nibBanner, forCellReuseIdentifier: bannerCellIdentifier)
-
-
     }
 
     func buildDisplaySections() {
@@ -75,73 +72,69 @@ class TeacherListViewController: UIViewController {
             displaySections.append(.teacherChunk(index: i))
 
             switch i {
-            case 0:
-                displaySections.append(.avatar)
-            case 1:
-                displaySections.append(.banner(index: 0))
-            case 2:
-                displaySections.append(.story)
-            case 3:
-                displaySections.append(.banner(index: 1))
-            case 4:
-                displaySections.append(.topTeacher)
-            default:
-                break
+                case 0:
+                    displaySections.append(.avatar)
+                case 1:
+                    displaySections.append(.banner(index: 0))
+                case 2:
+                    displaySections.append(.story)
+                case 3:
+                    displaySections.append(.banner(index: 1))
+                case 4:
+                    displaySections.append(.topTeacher)
+                default:
+                    break
             }
         }
     }
 }
 
-
 extension TeacherListViewController: UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return displaySections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch displaySections[section] {
-        case .teacherChunk(let index):
-            return teacherChunks[index].count
-        default:
-            return 1
+            case .teacherChunk(let index):
+                return teacherChunks[index].count
+            default:
+                return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch displaySections[indexPath.section] {
-        case .menu:
-            return tableView.dequeueReusableCell(withIdentifier: menuCellIdentifier, for: indexPath)
+            case .menu:
+                return tableView.dequeueReusableCell(withIdentifier: menuCellIdentifier, for: indexPath)
 
-        case .sort:
-            return tableView.dequeueReusableCell(withIdentifier: sortingCellIdentifier, for: indexPath)
+            case .sort:
+                return tableView.dequeueReusableCell(withIdentifier: sortingCellIdentifier, for: indexPath)
 
-        case .teacherChunk(let chunkIndex):
-            let teacher = teacherChunks[chunkIndex][indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TeacherListCell
-            cell.configureCell(teacher)
-            return cell
+            case .teacherChunk(let chunkIndex):
+                let teacher = teacherChunks[chunkIndex][indexPath.row]
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TeacherListCell
+                cell.configureCell(teacher)
+                return cell
 
-        case .story:
-            return tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath)
+            case .story:
+                return tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath)
 
-        case .banner(let bannerIndex):
-            let cell = tableView.dequeueReusableCell(withIdentifier: bannerCellIdentifier, for: indexPath) as! BannerCell
-            if bannerIndex < banners.count {
-                cell.configureCell(banners[bannerIndex])
-            }
-            return cell
+            case .banner(let bannerIndex):
+                let cell = tableView.dequeueReusableCell(withIdentifier: bannerCellIdentifier, for: indexPath) as! BannerCell
+                if bannerIndex < banners.count {
+                    cell.configureCell(banners[bannerIndex])
+                }
+                return cell
 
-        case .topTeacher:
-            return tableView.dequeueReusableCell(withIdentifier: topTeacherCellIdentifier, for: indexPath)
+            case .topTeacher:
+                return tableView.dequeueReusableCell(withIdentifier: topTeacherCellIdentifier, for: indexPath)
 
-        case .avatar:
-            return tableView.dequeueReusableCell(withIdentifier: avatarCellIdentifier, for: indexPath)
+            case .avatar:
+                return tableView.dequeueReusableCell(withIdentifier: avatarCellIdentifier, for: indexPath)
         }
 
     }
-
-    
 }
 
 extension TeacherListViewController: UITableViewDelegate {
@@ -152,16 +145,16 @@ extension TeacherListViewController: UITableViewDelegate {
         let sectionType = displaySections[indexPath.section]
 
         switch sectionType {
-        case .teacherChunk(let chunkIndex):
-            let teacher = teacherChunks[chunkIndex][indexPath.row]
-            let vc = UIHostingController(
-                rootView: TeacherDetailSwiftUI(teacherId: teacher.id)
-            )
-            vc.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(vc, animated: true)
+            case .teacherChunk(let chunkIndex):
+                let teacher = teacherChunks[chunkIndex][indexPath.row]
+                let vc = UIHostingController(
+                    rootView: TeacherDetailSwiftUI(teacherId: teacher.id)
+                )
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
 
-        default:
-            break // ignore taps on banners, stories, etc.
+            default:
+                break // ignore taps on banners, stories, etc.
         }
     }
 }

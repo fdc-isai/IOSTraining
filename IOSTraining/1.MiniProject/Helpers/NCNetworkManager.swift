@@ -10,7 +10,6 @@ import Alamofire
 
 final class NCNetworkManager {
     static let shared = NCNetworkManager()
-
     private init() {}
 
     func getTeacherDetail(

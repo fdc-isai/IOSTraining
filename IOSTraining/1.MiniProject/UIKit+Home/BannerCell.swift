@@ -8,7 +8,6 @@
 import UIKit
 
 class BannerCell: UITableViewCell {
-
     @IBOutlet weak var bannerImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
