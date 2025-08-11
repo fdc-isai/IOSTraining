@@ -50,6 +50,6 @@ struct TeacherButtons: View {
     }
 }
 
-#Preview {
-    TeacherButtons()
-}
+//#Preview {
+//    TeacherButtons()
+//}

@@ -246,5 +246,73 @@ final class NCNetworkManager {
     }
 
 
+
+    func saveNewMemo(
+        word: String,
+        meaning: String,
+        completion: @escaping (Bool) -> Void
+    ) {
+        let params: [String: Any] = [
+            "users_api_token": "dummiesttoken02",
+            "words": word,
+            "meaning": meaning,
+            "api_version": 30,
+            "app_version": "5.2.3",
+            "device_type": 2
+        ]
+        AF.request(
+            "https://english-staging.fdc-inc.com/api/wordbooks/create",
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print("✅ Saved successfully:", value)
+                completion(true)
+            case .failure(let error):
+                print("❌ Error saving:", error.localizedDescription)
+                completion(false)
+            }
+
+        }
+
+    }
+
+    func getVocabularyWords(
+        params: [String: Any],
+        completion: @escaping (VocabularyResponse) -> Void
+    ) {
+        AF.request(
+            "https://english-staging.fdc-inc.com/api/wordbooks/list",
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let tempData = try JSONSerialization.data(withJSONObject: data, options: [.prettyPrinted])
+                    if let jsonString = String(data: tempData, encoding: .utf8) {
+                        print("🔍 Received JSON:\n\(jsonString)")
+                    }
+                    let decoder = JSONDecoder()
+                    let words = try decoder.decode(VocabularyResponse.self, from: tempData)
+                    dump(words)
+                    completion(words)
+                } catch {
+                    print("❌ General error: \(error.localizedDescription)")
+                    completion(VocabularyResponse.getDefaultData())
+                }
+            case .failure(let error):
+                print("❌ Network request failed: \(error.localizedDescription)")
+                completion(VocabularyResponse.getDefaultData())
+            }
+        }
+    }
+
+
    
 }
